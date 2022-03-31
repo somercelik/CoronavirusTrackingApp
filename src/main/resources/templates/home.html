@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.github.com" lang="en">
+
+<head>
+    <title>Coronavirus Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"/>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <th>State</th>
+        <th>Country</th>
+        <th>Total cases reported</th>
+    </tr>
+    <tr th:each = "current : ${locationStats}">
+        <td th:text="${ current.getState() }">-</td>
+        <td th:text="${ current.getCountry() }">-</td>
+        <td th:text="${ current.getLatestTotalCases() }">-</td>
+    </tr>
+</table>
+
+</body>
+
+</html>

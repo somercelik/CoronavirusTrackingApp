@@ -1,10 +1,10 @@
-package com.somercelik.coronavirustracking.services;
+package com.somercelik.coronavirustracking.service;
 
-import com.somercelik.coronavirustracking.services.DataService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
@@ -15,6 +15,9 @@ class DataServiceTests {
     static DataService service;
     static HttpResponse<String> response;
 
+    @Autowired
+    DataService dataService;
+
     @BeforeAll
     static void setup() throws IOException, InterruptedException {
         service = new DataService();
@@ -24,7 +27,6 @@ class DataServiceTests {
     @Test
     void successfulResponseFromGitHub(){
         Assertions.assertEquals(200, response.statusCode());
-        System.out.println(response.body());
     }
 
 }
