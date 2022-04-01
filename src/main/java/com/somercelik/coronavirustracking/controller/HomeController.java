@@ -1,10 +1,13 @@
 package com.somercelik.coronavirustracking.controller;
 
+import com.somercelik.coronavirustracking.model.LocationStat;
 import com.somercelik.coronavirustracking.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * HomeController
@@ -20,7 +23,10 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("locationStats", dataService.getAllStats());
+        List<LocationStat> allStats = dataService.getAllStats();
+        int totalCases = allStats.stream().mapToInt(LocationStat::getLatestTotalCases).sum();
+        model.addAttribute("locationStats", allStats);
+        model.addAttribute("totalReportedCases", totalCases);
         return "home";
     }
 }

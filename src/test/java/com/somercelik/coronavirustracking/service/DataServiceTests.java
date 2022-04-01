@@ -15,7 +15,6 @@ class DataServiceTests {
     static DataService service;
     static HttpResponse<String> response;
 
-    @Autowired
     DataService dataService;
 
     @BeforeAll

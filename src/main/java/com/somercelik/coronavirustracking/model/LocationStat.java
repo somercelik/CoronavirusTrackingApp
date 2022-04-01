@@ -12,17 +12,26 @@ public class LocationStat {
     private String country;
     private String state;
     private Integer latestTotalCases;
+    private Integer diffFromYesterday;
 
-    public LocationStat() {
-        this.country = null;
-        this.state = null;
-        this.latestTotalCases = null;
+    public Integer getDiffFromYesterday() {
+        return diffFromYesterday;
     }
 
-    public LocationStat(String country, String state, Integer latestTotalCases) {
+    public void setDiffFromYesterday(Integer diffFromYesterday) {
+        this.diffFromYesterday = diffFromYesterday;
+    }
+
+    public LocationStat() {
+    }
+
+
+
+    public LocationStat(String country, String state, Integer latestTotalCases, Integer diffFromYesterday) {
         this.country = country;
         this.state = state;
         this.latestTotalCases = latestTotalCases;
+        this.diffFromYesterday = diffFromYesterday;
     }
 
     public LocationStat(LocationStat source) {
